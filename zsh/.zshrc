@@ -137,20 +137,20 @@ echo 1 | sudo tee /proc/sys/vm/drop_caches
 
 export BROWSER=wslview
 
-sudo /etc/init.d/dbus start &> /dev/null
+#sudo /etc/init.d/dbus start &> /dev/null
 
 # Make git branch etc not open less in interactive mode
 export LESS="--no-init --quit-if-one-screen -R"
 
 # start ssh-agent
-if [ -z "$(pgrep ssh-agent)" ]; then
-   rm -rf /tmp/ssh-*
-   eval $(ssh-agent -s) >/dev/null 2>&1
-   ssh-add $HOME/.ssh/github_ed25519 >/dev/null 2>&1
-else
-   export SSH_AGENT_PID=$(pgrep ssh-agent)
-   export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name "agent.*")
-fi
+#if [ -z "$(pgrep ssh-agent)" ]; then
+#   rm -rf /tmp/ssh-* 2> /dev/null
+#   eval $(ssh-agent -s) >/dev/null 2>&1
+#   ssh-add $HOME/.ssh/github_ed25519 >/dev/null 2>&1
+#else
+#   export SSH_AGENT_PID=$(pgrep ssh-agent)
+#   export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name "agent.*")
+#fi
 
 # Change bat theme
 export BAT_THEME="Solarized (dark)"
